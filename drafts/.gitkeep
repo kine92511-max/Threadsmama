@@ -1,3 +1,3 @@
 このフォルダには post-writer の出力をもとに人間が保存した執筆途中の下書き
-（`drafts/YYYY-MM-DD_テーマ概要.md` 形式のファイル）を置く。fact-checkerの指摘を人間が反映し、
-editorの最終承認後、`outputs/` に移動する。
+（`drafts/YYYY-MM-DD_テーマ概要.md` 形式のファイル）を置く。editorの編集結果、続いて
+fact-checkerの最終判定・修正文案を人間が順に反映し、「公開可能」となったら `outputs/` に移動する。

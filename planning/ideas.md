@@ -7,9 +7,9 @@
 ## ステータス凡例
 
 - `idea`: 企画段階
-- `drafting`: post-writerが執筆中
-- `fact-checking`: fact-checkerが検証中
-- `editing`: editorが最終編集中
+- `drafting`: post-writerが初稿を執筆中
+- `editing`: editorが読者目線で編集中
+- `fact-checking`: fact-checkerが最終ゲートとして検証中
 - `published`: 投稿済み（outputs/に完成稿あり）
 - `dropped`: 不採用・保留
 

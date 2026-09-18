@@ -1,7 +1,8 @@
 # コンテンツカレンダー
 
-投稿予定と実際の投稿状況を管理する。`content-strategist` が更新し、`editor` が投稿後に
-実績反映（`analytics/post_results.csv`）へのリンクを追記する。
+投稿予定と実際の投稿状況を管理する。4エージェントはいずれもファイルを直接編集しないため、
+人間が `content-strategist` の企画提案を反映してスケジュールを組み、投稿後に
+実績（`analytics/post_results.csv`）へのリンクを追記する。
 
 ## 運用比率の目安
 
