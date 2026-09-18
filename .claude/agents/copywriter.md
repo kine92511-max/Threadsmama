@@ -28,6 +28,9 @@ model: inherit
    （#PR等、詳細は `knowledge/04_compliance.md`）を必ず本文またはハッシュタグに入れる。
 4. Threadsの文字数上限（500文字）を守り、300〜500文字程度でテンポよくまとめる。
 5. 書き上げた下書きは `drafts/` に保存する（ファイル名: `YYYY-MM-DD_テーマ概要.md`）。
+6. `fact-checker` はファイルを直接編集しない（指摘事項を出力するのみ）ため、指摘を受け取ったら
+   その内容を `drafts/` の該当ファイルに反映し、フロントマターの `status` を `fact-checked` に
+   更新してから `editor` に引き継ぐ。
 
 ## 出力フォーマット（`drafts/` に保存するMarkdown）
 

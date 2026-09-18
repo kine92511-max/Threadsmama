@@ -10,8 +10,10 @@ model: inherit
 
 ## 最初に必ず読むもの
 
-- 検証対象の `drafts/*.md`（`status: fact-checked` であることを確認。そうでなければ
-  先に `fact-checker` を通すよう指摘して差し戻す）
+- 検証対象の `drafts/*.md`（`status: fact-checked` であることを確認。`fact-checker` は
+  Read/Grep/Globのみでファイルを直接編集しないため、このstatusは`fact-checker`の指摘事項を
+  反映した人間または`copywriter`が更新する。statusが無い、または`draft`のままの場合は、
+  先に `fact-checker` での点検を経ているか人間に確認し、未実施なら差し戻す）
 - `knowledge/03_writing_rules.md`（文体・トーン・絵文字ルール）
 - `knowledge/04_compliance.md`（法令NG表現・広告表記・炎上回避ルール）
 
