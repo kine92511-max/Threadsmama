@@ -1,0 +1,3 @@
+このフォルダには copywriter が作成した執筆途中の下書き（fact-checker・editorが編集する
+`drafts/YYYY-MM-DD_テーマ概要.md` 形式のファイル）を置く。editorの最終承認後、`outputs/` に
+移動する。
