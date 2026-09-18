@@ -20,7 +20,8 @@
 
 ## 進捗管理
 
-<!-- content-strategist が analytics/post_results.csv を集計し、定期的にここへ進捗サマリーを記録 -->
+<!-- 人間が analytics/post_results.csv を集計し、定期的にここへ進捗サマリーを記録する
+     （content-strategistはRead/Grep/Globのみのため、ファイルの更新は人間が行う） -->
 
 | 期間 | 投稿数 | 合計収益 | 目標(10万円)に対する進捗率 | メモ |
 |---|---|---|---|---|
