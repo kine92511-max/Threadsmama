@@ -14,6 +14,9 @@
 
 - `02-post-structure` からの投稿構成案（振り分け先が「アフィリエイト系」のもの）
 - `01-research` からの商品情報（価格、レビュー、キャンペーン情報など）
+- `knowledge/products.md`（商品の詳細・過去の紹介実績）
+- `knowledge/ng-expressions.md`（広告表記ルール・薬機法/景品表示法のNG表現の事前チェック）
+- `knowledge/hashtags.md`（実績のあるハッシュタグの選定）
 
 ## アウトプット
 

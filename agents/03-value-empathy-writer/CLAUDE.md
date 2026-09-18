@@ -15,6 +15,8 @@
 ## インプット
 
 - `02-post-structure` からの投稿構成案（振り分け先が「有益・共感系」のもの）
+- `knowledge/ng-expressions.md`（避けるべき表現の事前チェック）
+- `knowledge/hashtags.md`（実績のあるハッシュタグの選定）
 
 ## アウトプット
 

@@ -46,6 +46,22 @@
                        → 01-research へフィードバック（次のネタ出しに反映）
 ```
 
+## 共有ナレッジベース（knowledge/）
+
+6エージェント共通で参照・更新する「チームの記憶」を `knowledge/` フォルダに置く。
+個々の投稿の下書きや分析結果とは別に、サイクルを重ねるごとに蓄積・再利用される知見
+（商品データベース、伸びた投稿パターン、NG表現、ハッシュタグ実績、オーディエンスの悩み）
+をここにまとめる。各エージェントは作業開始前に関連ファイルを確認し、新しい知見を得たら
+都度追記すること。詳細な運用ルールは `knowledge/README.md` を参照。
+
+| ファイル | 内容 |
+|---|---|
+| `knowledge/products.md` | 楽天商品データベース（紹介実績込み） |
+| `knowledge/post-patterns.md` | 伸びた投稿の型・フック・時間帯の傾向 |
+| `knowledge/ng-expressions.md` | 法令NG表現・炎上回避ルール・広告表記ルール |
+| `knowledge/hashtags.md` | カテゴリ別ハッシュタグ集と実績 |
+| `knowledge/audience-insights.md` | フォロワー・ターゲットの悩み/ニーズの蓄積 |
+
 ## 全エージェント共通ルール
 
 - **一次情報の確認**: 商品情報・価格・在庫・キャンペーン内容は必ず最新情報を確認する。古い情報のまま投稿しない。
@@ -63,6 +79,13 @@
 ```
 Threadsmama/
 ├── CLAUDE.md                              ← 本ファイル（プロジェクト全体概要）
+├── knowledge/                             ← 全エージェント共通のナレッジベース
+│   ├── README.md
+│   ├── products.md
+│   ├── post-patterns.md
+│   ├── ng-expressions.md
+│   ├── hashtags.md
+│   └── audience-insights.md
 └── agents/
     ├── 01-research/CLAUDE.md
     ├── 02-post-structure/CLAUDE.md
