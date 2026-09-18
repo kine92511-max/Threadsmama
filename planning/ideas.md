@@ -7,7 +7,7 @@
 ## ステータス凡例
 
 - `idea`: 企画段階
-- `drafting`: copywriterが執筆中
+- `drafting`: post-writerが執筆中
 - `fact-checking`: fact-checkerが検証中
 - `editing`: editorが最終編集中
 - `published`: 投稿済み（outputs/に完成稿あり）
@@ -30,7 +30,7 @@
 - 投稿の目的:
 - 必要な実体験や資料:
 
-### 実装メモ(copywriterへの引き継ぎ時に人間が記入)
+### 実装メモ(post-writerへの引き継ぎ時に人間が記入)
 - 投稿の型・使用テンプレート:
 - 紹介商品(アフィリエイト系のみ、knowledge/products/のファイル名):
 - CTA:

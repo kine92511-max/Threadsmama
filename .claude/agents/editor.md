@@ -12,7 +12,7 @@ model: inherit
 
 - 検証対象の `drafts/*.md`（`status: fact-checked` であることを確認。`fact-checker` は
   Read/Grep/Globのみでファイルを直接編集しないため、このstatusは`fact-checker`の指摘事項を
-  反映した人間または`copywriter`が更新する。statusが無い、または`draft`のままの場合は、
+  反映した人間または`post-writer`が更新する。statusが無い、または`draft`のままの場合は、
   先に `fact-checker` での点検を経ているか人間に確認し、未実施なら差し戻す）
 - `knowledge/03_writing_rules.md`（文体・トーン・絵文字ルール）
 - `knowledge/04_compliance.md`（法令NG表現・広告表記・炎上回避ルール）
@@ -33,7 +33,7 @@ model: inherit
    - 問題なければ `outputs/threads/` または `outputs/rakuten_room/`（投稿先に応じて）に
      完成稿として保存し、`drafts/` の元ファイルは `status: published_ready` に更新するか削除する。
    - 重大な問題（コンプライアンス違反など）があれば投稿不可と判断し、修正指示とともに
-     `drafts/` に差し戻す（`copywriter` が修正できる粒度で指摘する）。
+     `drafts/` に差し戻す（`post-writer` が修正できる粒度で指摘する）。
 
 ## 出力フォーマット（`outputs/threads/` または `outputs/rakuten_room/` への保存）
 

@@ -19,7 +19,7 @@ Claude Codeのサブエージェント機能を使い、投稿制作は以下の
 | # | ファイル | エージェント名 | 役割概要 |
 |---|----------|----------------|----------|
 | 1 | `.claude/agents/content-strategist.md` | 投稿企画エージェント | `knowledge/00〜03` を読み、投稿テーマ・切り口・想定読者の悩みを企画提案する（Read/Grep/Globのみで、ファイル書き込みや外部検索は行わない） |
-| 2 | `.claude/agents/copywriter.md` | 投稿執筆エージェント | 企画案とテンプレートをもとに、有益・共感系／アフィリエイト系の本文を執筆 |
+| 2 | `.claude/agents/post-writer.md` | 投稿執筆エージェント | 企画案をもとにThreads投稿本文を執筆する。出力には本文本体に加え、冒頭の別案2つ・楽天ROOMへの自然な導線・事実確認が必要な箇所を含める |
 | 3 | `.claude/agents/fact-checker.md` | 事実確認エージェント | `drafts/` の下書きを `knowledge/products/`・`knowledge/04_compliance.md` と照合し、実体験の裏付け・商品仕様・誇張表現・広告表記の要否を点検して指摘する（Read/Grep/Globのみで、ファイル修正や外部検索は行わない） |
 | 4 | `.claude/agents/editor.md` | 最終編集エージェント | 文章・トーン・表記統一、コンプライアンス最終チェック、公開可否判断 |
 
@@ -28,9 +28,9 @@ Claude Codeのサブエージェント機能を使い、投稿制作は以下の
 ```
 content-strategist (企画提案: テーマ・悩み・切り口・目的・必要資料を出力)
    → 人間が採用した企画を planning/ideas.md, planning/content_calendar.md に記録
-       → copywriter (執筆: templates/ を使い drafts/ に下書き作成)
+       → post-writer (執筆: 本文・冒頭別案2つ・ROOM導線・要確認事項を出力し、人間が drafts/ に保存)
            → fact-checker (事実確認: 商品情報・実体験・誇張表現・広告表記の要否を点検し指摘事項を出力)
-               → 人間(またはcopywriter)が指摘を踏まえて drafts/ を修正
+               → 人間(またはpost-writer)が指摘を踏まえて drafts/ を修正
                    → editor (最終編集: 文体統一・コンプライアンス最終確認)
                        → outputs/threads/ または outputs/rakuten_room/ に完成稿を格納
                            → 投稿 (人間が最終承認して実際にThreads/楽天ROOMへ投稿)
@@ -47,7 +47,7 @@ maru-threads/
 ├── .claude/
 │   └── agents/
 │       ├── content-strategist.md   # ① 投稿企画
-│       ├── copywriter.md           # ② 投稿執筆
+│       ├── post-writer.md          # ② 投稿執筆
 │       ├── fact-checker.md         # ③ 事実確認
 │       └── editor.md               # ④ 最終編集
 │
@@ -73,7 +73,7 @@ maru-threads/
 │   ├── ideas.md                    # ネタ案ストック
 │   └── content_calendar.md         # 投稿カレンダー
 │
-├── drafts/                         ← 執筆途中の下書き（copywriterが作成→fact-checkerが点検→人間が修正反映→editorが仕上げ）
+├── drafts/                         ← 執筆途中の下書き（post-writerの出力を人間が保存→fact-checkerが点検→人間が修正反映→editorが仕上げ）
 │
 ├── outputs/                        ← 完成原稿（投稿用の最終稿）
 │   ├── threads/
@@ -97,8 +97,9 @@ maru-threads/
 
 - 企画段階のネタ・スケジュールは `planning/` に置く。
 - 執筆中（未確定）の原稿は `drafts/` に置く。ファイル名は日付＋概要を推奨（例: `2026-09-18_離乳食時短.md`）。
-- `fact-checker` はファイルを直接編集しない（Read/Grep/Globのみ）。指摘事項（問題のある文章・理由・
-  修正案・確認事項）を出力するので、人間または`copywriter`がそれを`drafts/`に反映してから`editor`に渡す。
+- `post-writer` もファイルを直接編集しない（出力を人間が`drafts/`に保存する）。
+- `fact-checker` もファイルを直接編集しない（Read/Grep/Globのみ）。指摘事項（問題のある文章・理由・
+  修正案・確認事項）を出力するので、人間または`post-writer`がそれを`drafts/`に反映してから`editor`に渡す。
 - `editor` が最終承認した原稿のみ `outputs/threads/` または `outputs/rakuten_room/` に移動する。
 - 投稿後の実績は `analytics/post_results.csv` に追記する（フォーマットは同ファイルのヘッダーを参照）。
 - 商品ごとの情報は `knowledge/products/` に1商品1ファイルで管理し、価格・レビュー件数などは
