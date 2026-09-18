@@ -18,7 +18,7 @@ Claude Codeのサブエージェント機能を使い、投稿制作は以下の
 
 | # | ファイル | エージェント名 | 役割概要 |
 |---|----------|----------------|----------|
-| 1 | `.claude/agents/content-strategist.md` | 投稿企画エージェント | ネタ出し・トレンド調査・投稿の型/フック設計・コンテンツカレンダー管理 |
+| 1 | `.claude/agents/content-strategist.md` | 投稿企画エージェント | `knowledge/00〜03` を読み、投稿テーマ・切り口・想定読者の悩みを企画提案する（Read/Grep/Globのみで、ファイル書き込みや外部検索は行わない） |
 | 2 | `.claude/agents/copywriter.md` | 投稿執筆エージェント | 企画案とテンプレートをもとに、有益・共感系／アフィリエイト系の本文を執筆 |
 | 3 | `.claude/agents/fact-checker.md` | 事実確認エージェント | 商品情報・価格・レビュー件数・法令表現の正確性を一次情報で検証 |
 | 4 | `.claude/agents/editor.md` | 最終編集エージェント | 文章・トーン・表記統一、コンプライアンス最終チェック、公開可否判断 |
@@ -26,15 +26,15 @@ Claude Codeのサブエージェント機能を使い、投稿制作は以下の
 ## 投稿制作フロー
 
 ```
-content-strategist (企画: ネタ出し・構成設計)
-   → planning/ideas.md, planning/content_calendar.md に記録
+content-strategist (企画提案: テーマ・悩み・切り口・目的・必要資料を出力)
+   → 人間が採用した企画を planning/ideas.md, planning/content_calendar.md に記録
        → copywriter (執筆: templates/ を使い drafts/ に下書き作成)
            → fact-checker (事実確認: 商品情報・法令表現の検証、drafts/ を修正)
                → editor (最終編集: 文体統一・コンプライアンス最終確認)
                    → outputs/threads/ または outputs/rakuten_room/ に完成稿を格納
                        → 投稿 (人間が最終承認して実際にThreads/楽天ROOMへ投稿)
                            → analytics/post_results.csv に結果を記録
-                               → content-strategist が次のネタ出しに反映
+                               → 人間が結果を踏まえて次回のcontent-strategistへの依頼内容に反映
 ```
 
 ## ディレクトリ構成
